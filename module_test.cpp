@@ -63,7 +63,7 @@ TEST_F(StackTest, get_equals_put_for_one_item)
 
     ASSERT_EQ(pushed_element,poped_element);
 }
-
+  
 //6
 TEST_F(StackTest, put_multiple_get_multiple_LIFO)
 {
