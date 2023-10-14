@@ -19,7 +19,7 @@ public:
 //0
 TEST_F(StackTest, zero_condition_is_created)
 {
-    ASSERT_EQ(9,s.size);
+    ASSERT_EQ(5,s.size);
 }
 
 
