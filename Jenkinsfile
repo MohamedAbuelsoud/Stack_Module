@@ -9,14 +9,9 @@ pipeline {
         //     }
         // }
 
-        stage('Cleanup Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
+                cleanWs()
                 script {
                     // --build-arg
                     def dockerImage = docker.build('stack_module:v0.1', '-f /home/abuelsoud/Adaptive/DEVOPS/Stack_Module/Dockerfile /home/abuelsoud/Adaptive/DEVOPS/Stack_Module')
