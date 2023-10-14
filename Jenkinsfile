@@ -8,6 +8,13 @@ pipeline {
         //         }
         //     }
         // }
+
+        stage('Cleanup Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
