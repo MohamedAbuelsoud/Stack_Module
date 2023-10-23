@@ -15,7 +15,7 @@ pipeline {
                // }
             }
         }
-        
+
         stage('Checkout') {
             steps {
                 script {
@@ -31,14 +31,14 @@ pipeline {
             //   cleanWs()
                 script {
                     // --build-arg
-                    def dockerImage = docker.build('stack_module:v0.1', '-f /home/abuelsoud/Adaptive/DEVOPS/Stack_Module/Dockerfile /home/abuelsoud/Adaptive/DEVOPS/Stack_Module')
+                    def dockerImage = docker.build('stack_module:v0.1', '-f Dockerfile .')
                 }
             }
         }
         stage('Run Docker Container') {
             steps {
                 script {
-                    def dockerImage = docker.build('stack_module:v0.1', '-f /home/abuelsoud/Adaptive/DEVOPS/Stack_Module/Dockerfile /home/abuelsoud/Adaptive/DEVOPS/Stack_Module')
+                    def dockerImage = docker.build('stack_module:v0.1', '-f Dockerfile .')
                     dockerImage.inside {
                         sh 'cd /usr/src/App/build && ./App'
                     }
