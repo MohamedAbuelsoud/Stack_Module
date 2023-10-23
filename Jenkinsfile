@@ -1,6 +1,12 @@
 pipeline {
     agent any
+    environment {
+        // Define your GitHub repository URL and credentials here
+        GITHUB_REPO = 'https://github.com/MohamedAbuelsoud/Stack_Module.git'
+       // GITHUB_CREDENTIALS = credentials('your-credential-id')
+    }
     stages {
+    
         stage('Delete Previous builds'){
             steps{
                // script{
@@ -9,7 +15,17 @@ pipeline {
                // }
             }
         }
+        
+        stage('Checkout') {
+            steps {
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: env.GITHUB_REPO]]])
+                }
+            }
+        }
+        
 
+        
         stage('Build Docker Image') {
             steps {
             //   cleanWs()
