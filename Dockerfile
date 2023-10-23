@@ -11,7 +11,7 @@ COPY . /usr/src/App
 RUN ls /usr/src/App
 WORKDIR /usr/src/App
 
-RUN mkdir build && cd build && cmake -B . .. && make
+RUN rm -f build && mkdir build && cd build && cmake -B . .. && make
     
 CMD ["./build/App"]
 # /usr/src/App/build
